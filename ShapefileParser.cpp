@@ -41,15 +41,6 @@ int main()
 	fh.fileCode = little2native32(fh.fileCode);
 	fh.fileLength = little2native32(fh.fileLength);
 
-	// some test readouts
-	Point_t testPoint;
-	memcpy(&testPoint, (buffer + 0x9C), sizeof(Point_t));
-
-	////////////////////////////////////////////////
-
-
-	uint32_t b = sizeof(HeaderBoundingBox_t);
-
 	Record_t r;
 	RecordHeader_t rh;
 	uint32_t currentPositionInFile = sizeof(FileHeader_t);
@@ -57,12 +48,6 @@ int main()
 	uint32_t ptr = 0;
 
 	uint32_t numRecs = 0;
-
-	uint32_t* arr;
-	arr = (uint32_t*)malloc(3 * (sizeof(uint32_t)));
-	arr[0] = 0;
-	arr[1] = 1;
-	arr[2] = 2;
 
 	// get number of records in file
 	do {
